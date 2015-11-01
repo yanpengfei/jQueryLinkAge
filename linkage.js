@@ -1,7 +1,7 @@
 +function ( $, window ) {
 
 	$.yanpengfei.Linkage = function ( selObjs, default_value) {
-		// 数据稳定性判断
+
 		var _sel_dom = $(document).find("select")  	// 获取页面上所有select元素
 		 	,_sel_dom_array = new Array()			// 建立一个空数组
 		 	,_SEL_PREFX = "yanpengfei_sel_"  		// 设置select元素的id前缀
@@ -12,7 +12,7 @@
 			,i 										// 循环用	
 			,_default_value = default_value			// 默认显示字符
 
-
+		// 数据稳定性判断
 		for (var i = 0, _sel_dom_length = _sel_dom.length ; i < _sel_dom.length; i++ ) {  // 遍历所有select元素
 
 			_sel_dom_name = _sel_dom[i].id 			// 获取select的id
