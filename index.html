@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>级联菜单demo</title>
+  <script src="jquery2.1.4.min.js"></script>
+  <script src="linkage.js"></script>
+</head>
+<body>
+<p>
+  <select id="yanpengfeiSe_1"></select>
+  <select id="yanpengfeiSe_2"></select>
+</p>
+<p>
+  <select id="yanpengfeiSF_1"></select>
+  <select id="yanpengfeiSF_2"></select>
+</p>
+  <script>
+  // 此处用变量代替了json
+  var sels = [
+              [
+                {
+                  nodeId:"1",
+                  pId:"0",
+                  name:"菜单一"
+                },
+                {
+                  nodeId:"2",
+                  pId:"0",
+                  name:"菜单二"
+                }
+              ],
+              [
+                {
+                  nodeId:"3",
+                  pId:"1",
+                  name:"菜单一（一）"
+                },
+                {
+                  nodeId:"4",
+                  pId:"2",
+                  name:"菜单二（一）"
+                }
+              ]
+            ];
+  var selb = [
+              [
+                {
+                  nodeId:"1",
+                  pId:"0",
+                  name:"北京"
+                },
+                {
+                  nodeId:"2",
+                  pId:"0",
+                  name:"杭州"
+                }
+              ],
+              [
+                {
+                  nodeId:"3",
+                  pId:"1",
+                  name:"顺义"
+                },
+                {
+                  nodeId:"4",
+                  pId:"2",
+                  name:"小杭州"
+                }
+              ]
+            ];
+  $(document).ready(function(){
+    $.yanpengfei.linkAge(sels,"--请选择--")
+    $.yanpengfei.linkAge(selb,"--请选择--","yanpengfeiSF_")
+  })
+  </script>
+</body>
+</html>
