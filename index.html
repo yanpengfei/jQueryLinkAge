@@ -70,8 +70,15 @@
               ]
             ];
   $(document).ready(function(){
-    $.yanpengfei.linkAge(sels,"--请选择--")
-    $.yanpengfei.linkAge(selb,"--请选择--","yanpengfeiSF_")
+    $.yanpengfei.linkAge({
+        selObjs:sels
+      });
+
+    $.yanpengfei.linkAge({
+      selObjs:selb,
+      default_value:"--请选择--",
+      SEL_PREFX:"yanpengfeiSF_"
+    });
   })
   </script>
 </body>
