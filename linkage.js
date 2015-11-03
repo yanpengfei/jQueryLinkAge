@@ -13,16 +13,25 @@
     $.yanpengfei = {}
   }
 
-  $.yanpengfei.linkAge = function ( selObjs, default_value, SEL_PREFX ) {
+  var __selobjs=[];
+
+  $.yanpengfei.linkAge = function ( opts ) {
+    this.options = {
+      selObjs:[],
+      default_value:"--请选择--",
+      SEL_PREFX:"yanpengfeiSe_"
+    };
+
+    $.extend(this.options,opts);
 
     // 获取页面上所有select元素
     var _sel_dom = $(document).find("select")
     // 建立一个空数组
     var _sel_dom_array = new Array()
     // 设置select元素的id前缀
-    var _SEL_PREFX = SEL_PREFX
+    var _SEL_PREFX = this.options.SEL_PREFX
     // 获取json数组长度
-    var _selObjs_length = selObjs.length
+    var _selObjs_length = this.options.selObjs.length
     // select元素的前缀
     var _sel_dom_name_Prefx
      // select元素的后缀
@@ -32,12 +41,9 @@
     // 循环用
     var i
     // 默认显示字符
-    var _default_value = default_value
-      
-    // 默认参数
-    if ( _SEL_PREFX == undefined ) {
-      _SEL_PREFX = "yanpengfeiSe_"
-    }
+    var _default_value = this.options.default_value
+
+    __selobjs = this.options.selObjs;
     
     // 遍历所有select元素
     for (var i = 0, _sel_dom_length = _sel_dom.length ; i < _sel_dom.length; i++ ) {  
@@ -117,12 +123,12 @@
       }
 
       //添加内容
-      for ( i = 0 ; i < selObjs[j].length; i++ ) {
+      for ( i = 0 ; i < __selobjs[j].length; i++ ) {
 
         // 父节点判断
-        if ( selObjs[j][i].pId == pid ) {
+        if ( __selobjs[j][i].pId == pid ) {
 
-          str = "<option value='"+ selObjs[j][i].nodeId +"'>"+ selObjs[j][i].name +"</option>"
+          str = "<option value='"+ __selobjs[j][i].nodeId +"'>"+ __selobjs[j][i].name +"</option>"
           _dom.append( str )
 
         }
@@ -167,9 +173,9 @@
       var str =""
 
       //填充第一级内容
-      for ( i = 0 ; i < selObjs[0].length; i++ ) {
+      for ( i = 0 ; i < __selobjs[0].length; i++ ) {
 
-        str = "<option value='"+ selObjs[0][i].nodeId +"'>"+ selObjs[0][i].name +"</option>"
+        str = "<option value='"+ __selobjs[0][i].nodeId +"'>"+ __selobjs[0][i].name +"</option>"
         _dom.append( str )
 
       }
